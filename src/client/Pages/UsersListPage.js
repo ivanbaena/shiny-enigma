@@ -4,7 +4,7 @@ import { fetchUsers } from '../actions';
 
 const UsersList = ({ fetchAllUsers, users }) => {
   useEffect(() => {
-    fetchAllUsers();
+    users ? null : fetchAllUsers();
   }, []);
 
   const renderUsers = () => {
@@ -34,5 +34,7 @@ const loadData = (store) => {
   return store.dispatch(fetchUsers());
 };
 
-export { loadData };
-export default connect(mapStateToProps, mapDispatchToProps)(UsersList);
+export default {
+  component: connect(mapStateToProps, mapDispatchToProps)(UsersList),
+  loadData: loadData,
+};
