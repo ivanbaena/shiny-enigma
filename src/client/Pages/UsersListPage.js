@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchUsers } from '../actions';
 
-const UsersList = ({ fetchAllUsers, users }) => {
+const UsersListPage = ({ fetchAllUsers, users }) => {
   useEffect(() => {
-    users ? null : fetchAllUsers();
-  }, []);
+    !users || users.length === 0 ? fetchAllUsers() : null;
+  }, [users]);
 
   const renderUsers = () => {
     return users.map((user) => {
@@ -13,7 +13,7 @@ const UsersList = ({ fetchAllUsers, users }) => {
     });
   };
 
-  if (!users) return <div>no users</div>;
+  if (!users || users.length === 0) return <div>no users</div>;
 
   return (
     <div>
@@ -35,6 +35,6 @@ const loadData = (store) => {
 };
 
 export default {
-  component: connect(mapStateToProps, mapDispatchToProps)(UsersList),
+  component: connect(mapStateToProps, mapDispatchToProps)(UsersListPage),
   loadData: loadData,
 };
