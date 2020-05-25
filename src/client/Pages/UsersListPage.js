@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import { fetchUsers } from '../actions';
 
@@ -15,8 +16,17 @@ const UsersListPage = ({ fetchAllUsers, users }) => {
 
   if (!users || users.length === 0) return <div>no users</div>;
 
+  const head = () => {
+    return (
+      <Helmet>
+        <title>{`${users.length} Users Loaded`}</title>
+        <meta property='og:type' content='Users App' />
+      </Helmet>
+    );
+  };
   return (
     <div>
+      {head()}
       <ul>{renderUsers()}</ul>
     </div>
   );
