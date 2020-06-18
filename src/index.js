@@ -46,5 +46,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log('were on PORT 3000');
+  console.log('React SSR! is ready on PORT: 3000');
 });
