@@ -4,10 +4,14 @@
   "description": "Server side rendering project",
   "main": "index.js",
   "scripts": {
-    "dev": "npm-run-all --parallel dev:*",
+    "dev": "npm run build",
+    "prebuild": "npm run setup:clean && npm run setup:init",
+    "build": "npm-run-all --parallel dev:*",
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
-    "dev:build-client": "webpack --config webpack.client.js --watch",
-    "dev:build-server": "webpack --config webpack.server.js --watch"
+    "dev:build-client": "webpack --config webpack.client.js --watch --progress",
+    "dev:build-server": "webpack --config webpack.server.js --watch --progress",
+    "setup:clean": "rimraf build && rimraf public",
+    "setup:init": "mkdir -p build; cd ./build; touch bundle.js"
   },
   "author": "",
   "license": "ISC",
@@ -36,7 +40,9 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "regenerator-runtime": "^0.13.5",
+    "rimraf": "^3.0.2",
     "serialize-javascript": "^3.0.0",
+    "source-map-support": "^0.5.19",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0",
