@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "dev": "npm run build",
-    "prebuild": "npm run setup:clean && npm run setup:init",
+    "prebuild": "npm run setup:clean && npm run setup:primer",
     "build": "npm-run-all --parallel dev:*",
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
     "dev:build-client": "webpack --config webpack.client.js --watch --progress",
     "dev:build-server": "webpack --config webpack.server.js --watch --progress",
     "setup:clean": "rimraf build && rimraf public",
-    "setup:init": "mkdir -p build; cd ./build; touch bundle.js"
+    "setup:primer": "mkdir -p build; cd ./build; touch bundle.js"
   },
   "author": "",
   "license": "ISC",
