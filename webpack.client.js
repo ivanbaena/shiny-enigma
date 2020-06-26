@@ -22,7 +22,7 @@ const config = {
               /[\\/]node_modules[\\/](.*?)([\\/]|$)/
             )[1];
 
-            return `npm.${packageName.replace('@', '')}`;
+            return `vendor/npm.${packageName.replace('@', '')}`;
           },
         },
       },

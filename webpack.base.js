@@ -27,7 +27,6 @@ module.exports = {
                 mode: 'local',
                 exportGlobals: true,
                 localIdentName: '[name]__[local]--[hash:base64:5]',
-                hashPrefix: 'baena',
               },
             },
           },
@@ -44,6 +43,19 @@ module.exports = {
             },
           },
           'css-loader',
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[contenthash].[ext]',
+              outputPath: 'static/assets/',
+              publicPath: 'static/assets/',
+            },
+          },
         ],
       },
     ],

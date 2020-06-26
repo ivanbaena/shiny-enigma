@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 
 import styles from './Header.module.css';
 
+import Image from './Image';
+
 const Header = ({ auth }) => {
   const authButton = auth ? (
     <a href='/api/logout'>Logout</a>
@@ -25,6 +27,7 @@ const Header = ({ auth }) => {
           </li>
           <li>{authButton}</li>
         </ul>
+        <Image />
       </div>
     </nav>
   );
