@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import styles from './Header.module.css';
+
 const Header = ({ auth }) => {
   const authButton = auth ? (
     <a href='/api/logout'>Logout</a>
@@ -10,7 +12,7 @@ const Header = ({ auth }) => {
   );
   return (
     <nav>
-      <div className='nav-wrapper'>
+      <div className={styles.nav}>
         <Link to='/' className='brand-logo'>
           React-SSR
         </Link>

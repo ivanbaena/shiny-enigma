@@ -12,6 +12,8 @@ import { renderRoutes } from 'react-router-config';
 import Routes from './Routes';
 import reducers from './reducers';
 
+import './styles/index.css';
+
 const axiosInstance = axios.create({
   baseURL: '/api',
 });

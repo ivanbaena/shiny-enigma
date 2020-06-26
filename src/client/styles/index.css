@@ -1,0 +1,9 @@
+.background {
+  background-color: blue;
+  height: 50px;
+  width: 50px;
+}
+
+body {
+  background-color: black;
+}
